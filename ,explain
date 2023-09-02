@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# print the source of a script
+
+cat `which $1`
