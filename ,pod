@@ -1,0 +1,10 @@
+#!/bin/bash
+
+url="$1"
+fname=`echo "$url" | sed 's/\//_/g'`
+
+mkdir -p podcasts
+
+wget -O "podcasts/$fname" "$url"
+
+vlc --rate 2 "podcasts/$fname"

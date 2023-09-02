@@ -1,0 +1,7 @@
+#!/bin/bash
+
+URL=`git remote get-url origin | sed 's/mr-martian/apertium/g'`
+git remote set-url origin "$URL"
+git fetch origin
+git reset --hard origin/master
+# git clean -f -d

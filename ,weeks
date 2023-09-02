@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+
+import datetime
+import argparse
+
+parser = argparse.ArgumentParser('List the dates N weeks from today')
+parser.add_argument('-n', type=int, default=20, help="number of weeks")
+parser.add_argument('-d', type=int, default=0, help="offset from today (in days)")
+args = parser.parse_args()
+
+start = datetime.date.today() + datetime.timedelta(days=args.d)
+for i in range(0, args.n+1):
+    print(f'+{i}: {start + datetime.timedelta(days=7*i)}')

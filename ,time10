@@ -1,0 +1,13 @@
+#!/bin/bash
+
+rm -f /tmp/timing
+
+for i in $(seq 10)
+do
+    /usr/bin/time -f '%M\t%e' -a -o /tmp/timing $@
+done
+
+m=`cat /tmp/timing | cut -f1 | paste -sd+ | sed -e 's/^/(/g' -e 's|$|)/10|g' | calc -p`
+t=`cat /tmp/timing | cut -f2 | paste -sd+ | sed -e 's/^/(/g' -e 's|$|)/10|g' | calc -p`
+
+echo "$m KB $t s"

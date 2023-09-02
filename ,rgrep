@@ -1,0 +1,5 @@
+#!/bin/bash
+
+ext='\.'$1'$'
+
+find | egrep "$ext" | xargs egrep --color=auto "$2"
